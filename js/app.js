@@ -31,7 +31,13 @@ class Enemy {
     }
 
     update(dt) {
+        if ( this.x < 505 ) {
         this.x += (this.speed * dt);
+        } else {
+            this.x = 0;
+        this.y = Math.floor((Math.random() * 165) + 60);
+        this.speed = Math.floor((Math.random() * 205) + 70);
+        }
     }
 
     render() {

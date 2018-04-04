@@ -22,7 +22,7 @@ Enemy.prototype.render = function() {
 };*/
 class Enemy {
     constructor() {
-        this.sprite = "images/enemy-bug.png";
+        this.sprite = "images/Rock.png";
         this.x = 0;
         this.y = 100;
         this.speed = 10;
@@ -42,30 +42,40 @@ class Enemy {
 
 class Player {
     constructor() {
-        this.sprite = "images/Star.png";
+        this.sprite = "images/Heart.png";
         this.x = 0;
-        this.x = 50;
-        this.y = 50;
-        this.speed = 5;
+        this.x = 200;
+        this.y = 375;
+        this.speed = 20;
     }
 
     update() {
     }
 
     handleInput(dir) {
-        console.log(dir);
         switch(dir) {
             case "up":
-                this.y -= this.speed;
+                if ( this.y - 75 > this.speed ) {
+                    this.y -= this.speed;
+            } else {
+                    this.y -= this.speed;
+                console.log("won!!");
+            }
                 break;
             case "down":
-                this.y += this.speed;
+                if ( this.y + 89 <= 540 - this.speed ) {
+                    this.y += this.speed;
+            }
                 break;
             case "right":
-                this.x += this.speed;
+                if ( this.x + 100 <= 505 - this.speed ) {
+                    this.x += this.speed;
+            }
                 break;
             case "left":
-                this.x -= this.speed;
+                if ( this.x >= this.speed ) {
+                    this.x -= this.speed;
+            }
                 break;
         }
     }

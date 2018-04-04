@@ -24,8 +24,10 @@ class Enemy {
     constructor() {
         this.sprite = "images/Rock.png";
         this.x = 0;
-        this.y = 100;
-        this.speed = 10;
+        this.y = Math.floor((Math.random() * 165) + 60);
+        //this.y = 225;
+        console.log(this.y);
+        this.speed = Math.floor((Math.random() * 205) + 70);
     }
 
     update(dt) {
@@ -88,6 +90,8 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 const allEnemies = [
+                        new Enemy(),
+                        new Enemy(),
                         new Enemy()
                    ];
 

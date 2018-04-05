@@ -21,13 +21,16 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };*/
 class Enemy {
-    constructor() {
+    constructor(player) {
         this.sprite = "images/Rock.png";
         this.x = 0;
         this.y = Math.floor((Math.random() * 165) + 60);
         //this.y = 225;
         console.log(this.y);
         this.speed = Math.floor((Math.random() * 205) + 70);
+        this.player = player;
+        this.width = 84;
+        this.height = 86;
     }
 
     update(dt) {
@@ -38,10 +41,20 @@ class Enemy {
         this.y = Math.floor((Math.random() * 165) + 60);
         this.speed = Math.floor((Math.random() * 205) + 70);
         }
+        this.check_collision();
     }
 
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+
+    check_collision() {
+        if ( this.x < player.x + player.width &&
+            player.x < this.x + this.width &&
+                this.y < player.y + player.height &&
+                    player.y < this.y + this.height ) {
+            console.log("Collision detected!");
+        }
     }
 }
 // Now write your own player class
@@ -55,6 +68,8 @@ class Player {
         this.x = 200;
         this.y = 375;
         this.speed = 20;
+        this.width = 87;
+        this.height = 87;
     }
 
     update() {

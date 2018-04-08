@@ -22,15 +22,15 @@ Enemy.prototype.render = function() {
 };*/
 class Enemy {
     constructor(player) {
-        this.sprite = "images/Rock.png";
+        this.sprite = "images/Gem Green.png";
         this.x = 0;
         this.y = Math.floor((Math.random() * 165) + 60);
         //this.y = 225;
         console.log(this.y);
         this.speed = Math.floor((Math.random() * 205) + 70);
         this.player = player;
-        this.width = 84;
-        this.height = 86;
+        this.width = 93;
+        this.height = 103;
     }
 
     update(dt) {
@@ -48,12 +48,18 @@ class Enemy {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
+    // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
     check_collision() {
-        if ( this.x < player.x + player.width &&
-            player.x < this.x + this.width &&
-                this.y < player.y + player.height &&
-                    player.y < this.y + this.height ) {
+        const rtx = this.x + 4;
+        const rty = this.y + 59;
+        const rpx = player.x + 31;
+        const rpy = player.y + 57;
+        if ( rtx < rpx + player.width - 5 &&
+            rpx < rtx + this.width - 5 &&
+                rty < rpy + player.height - 15 &&
+                    rpy < rty + this.height - 15) {
             console.log("Collision detected!");
+            hdddf();
         }
     }
 }
@@ -63,13 +69,13 @@ class Enemy {
 
 class Player {
     constructor() {
-        this.sprite = "images/Heart.png";
+        this.sprite = "images/Key.png";
         this.x = 0;
         this.x = 200;
         this.y = 375;
         this.speed = 20;
-        this.width = 87;
-        this.height = 87;
+        this.width = 41;
+        this.height = 83;
     }
 
     update() {

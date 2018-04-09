@@ -8,4 +8,19 @@ For detailed instructions on how to get started, check out this [guide](https://
 ATTRIBUTIONS
 ============
 
+https://www.w3schools.com/
+https://developer.mozilla.org/
 https://developer.mozilla.org/kab/docs/Games/Techniques/2D_collision_detection
+https://stackoverflow.com/
+
+HOW TO START THE GAME
+=====================
+
+Open index.html using your browser.
+
+
+HOW TO PLAY THE GAME
+====================
+
+Use the arrow keys to move the key to reach the water (the blue part).
+Don't collide with any gem.
